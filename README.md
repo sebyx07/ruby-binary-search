@@ -1,39 +1,77 @@
-# BinarySearch
+# BinarySearch 🌳🔍
 
-TODO: Delete this and the text below, and describe your gem
+Welcome to BinarySearch, a gem that brings the power of Red-Black Trees to your Ruby projects! 🚀
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/binary_search`. To experiment with that code, run `bin/console` for an interactive prompt.
+## What is BinarySearch? 🤔
 
-## Installation
+BinarySearch is a Ruby gem that implements a self-balancing binary search tree using the Red-Black Tree algorithm. It provides a list-like interface with blazing-fast search, insertion, and deletion operations. 💨
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+## Why BinarySearch? 🌟
 
-Install the gem and add to the application's Gemfile by executing:
+- **Efficiency**: Operations like search, insert, and delete are O(log n), making it much faster than standard arrays for large datasets. 📈
+- **Self-balancing**: The Red-Black Tree ensures that the tree remains balanced, maintaining consistent performance even with frequent modifications. ⚖️
+- **Sorted storage**: Elements are always stored in sorted order, making it perfect for applications that require sorted data. 📊
+- **Flexible**: Supports common list operations like push, pop, shift, and unshift, as well as set operations like union and intersection. 🛠️
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+## Installation 💻
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+Add this line to your application's Gemfile:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+gem 'binary_search'
+```
 
-## Usage
+And then execute:
+```bash
+bundle install
+```
 
-TODO: Write usage instructions here
+## Usage 🚀
+Here's a quick example of how to use BinarySearch:
 
-## Development
+```ruby
+require 'binary_search'
+
+# Create a new list
+list = BinarySearch::List.new([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5])
+
+# Get the sorted array
+puts list.to_a  # Output: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
+
+# Check if a value exists
+puts list.include?(4)  # Output: true
+
+# Remove all instances of a value
+list.delete(1)
+puts list.to_a  # Output: [2, 3, 3, 4, 5, 5, 5, 6, 9]
+
+# Add a new value
+list.insert(7)
+puts list.to_a  # Output: [2, 3, 3, 4, 5, 5, 5, 6, 7, 9]
+
+# Get the minimum and maximum values
+puts list.min  # Output: 2
+puts list.max  # Output: 9
+```
+## Why is BinarySearch better than normal search? 🏆
+
+- Speed: For large datasets, binary search is significantly faster than linear search. While a normal array search takes O(n) time, BinarySearch takes only O(log n) time. 🐇
+- Always sorted: The list is always maintained in sorted order, which is useful for many applications and algorithms. 📑
+- Efficient insertions and deletions: Unlike normal arrays where insertions and deletions can be O(n) operations, BinarySearch performs these in O(log n) time. 🔄
+- Memory efficiency: Red-Black Trees are more memory-efficient than hash tables for certain types of data and operations. 💾
+- Range queries: BinarySearch makes it easy to perform range queries efficiently, which can be cumbersome with normal arrays. 🎯
+
+## Development 🛠️
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To install this gem onto your local machine, run `bundle exec rake install`.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Contributing 🤝
 
-## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/sebyx07/binary_search. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/binary_search. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/binary_search/blob/master/CODE_OF_CONDUCT.md).
+## License 📄
+The gem is available as open source under the terms of the MIT License.
 
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the BinarySearch project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/binary_search/blob/master/CODE_OF_CONDUCT.md).
+## Code of Conduct 🤓
+Everyone interacting in the BinarySearch project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.

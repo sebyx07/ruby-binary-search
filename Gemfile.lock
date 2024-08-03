@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    binary_search (0.1.0)
+    binary_search (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -27,6 +27,7 @@ GEM
       concurrent-ruby (~> 1.0)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
+    lefthook (1.7.11)
     minitest (5.24.1)
     mutex_m (0.2.0)
     parallel (1.25.1)
@@ -101,6 +102,7 @@ PLATFORMS
 
 DEPENDENCIES
   binary_search!
+  lefthook (~> 1.7, >= 1.7.4)
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop-rails_config (~> 1.16)

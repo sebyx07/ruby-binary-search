@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'binary_search/version'
+require 'set'
+require 'singleton'
+
+Dir[File.join(__dir__, 'binary_search', '**', '*.rb')].each { |file| require file }
 
 module BinarySearch
   class Error < StandardError; end
-  # Your code goes here...
 end
