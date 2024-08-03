@@ -30,7 +30,7 @@ bundle install
 Here's a quick example of how to use BinarySearch:
 
 ```ruby
-require 'binary_search'
+require 'ruby_binary_search'
 
 # Create a new list
 list = BinarySearch::List.new([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5])
@@ -55,7 +55,7 @@ puts list.max  # Output: 9
 ```
 Custom objects
 ```ruby
-require 'binary_search'
+require 'ruby_binary_search'
 class Person
   attr_accessor :name, :age
 

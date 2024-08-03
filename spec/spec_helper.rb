@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'binary_search'
+require 'ruby_binary_search'
 require 'pry'
 require 'rspec-benchmark'
 
