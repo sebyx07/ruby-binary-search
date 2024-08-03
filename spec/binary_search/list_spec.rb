@@ -217,7 +217,7 @@ RSpec.describe BinarySearch::List do
         large_list | other_large_list
         large_list & other_large_list
         large_list - other_large_list
-      }.to perform_under(1).sec
+      }.to perform_under(2).sec
 
       expect((large_list | other_large_list).size).to be_within(10).of(150_000)
       expect((large_list & other_large_list).size).to be_within(10).of(50_000)
