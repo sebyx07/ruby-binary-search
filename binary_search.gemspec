@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = 'Binary search list implemented in ruby using red-black self-balancing tree'
   spec.description = 'Binary search list implemented in ruby using red-black self-balancing tree'
-  spec.homepage = 'https://github.com/sebyx07/binary_search'
+  spec.homepage = 'https://github.com/sebyx07/ruby-binary-search'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.0'
 
