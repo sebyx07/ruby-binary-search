@@ -56,6 +56,7 @@ puts list.max  # Output: 9
 Custom objects
 ```ruby
 require 'ruby_binary_search'
+
 class Person
   attr_accessor :name, :age
 
