@@ -277,7 +277,8 @@ module BinarySearch
       # @return [void]
       def delete_case2(node)
         sibling = get_sibling(node)
-        if sibling&.red?
+        return if sibling.nil? || node.parent.nil?
+        if sibling.red?
           node.parent.color = :red
           sibling.color = :black
           if node == node.parent.left
@@ -295,7 +296,8 @@ module BinarySearch
       # @return [void]
       def delete_case3(node)
         sibling = get_sibling(node)
-        if node.parent.black? && sibling&.black? &&
+        return if sibling.nil? || node.parent.nil?
+        if node.parent.black? && sibling.black? &&
           (!sibling.left || sibling.left.black?) &&
           (!sibling.right || sibling.right.black?)
           sibling.color = :red
@@ -311,7 +313,8 @@ module BinarySearch
       # @return [void]
       def delete_case4(node)
         sibling = get_sibling(node)
-        if node.parent.red? && sibling&.black? &&
+        return if sibling.nil? || node.parent.nil?
+        if node.parent.red? && sibling.black? &&
           (!sibling.left || sibling.left.black?) &&
           (!sibling.right || sibling.right.black?)
           sibling.color = :red
@@ -327,7 +330,8 @@ module BinarySearch
       # @return [void]
       def delete_case5(node)
         sibling = get_sibling(node)
-        if sibling&.black?
+        return if sibling.nil? || node.parent.nil?
+        if sibling.black?
           if node == node.parent.left &&
             (!sibling.right || sibling.right.black?) &&
             sibling.left&.red?
@@ -351,6 +355,7 @@ module BinarySearch
       # @return [void]
       def delete_case6(node)
         sibling = get_sibling(node)
+        return if sibling.nil? || node.parent.nil?
         sibling.color = node.parent.color
         node.parent.color = :black
         if node == node.parent.left

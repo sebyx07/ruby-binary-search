@@ -7,7 +7,7 @@ module BinarySearch
     # A node contains a key, color, references to its left and right children,
     # and a reference to its parent. The color is used to maintain the balance
     # properties of the Red-Black Tree.
-    Node = Struct.new(:key, :color, :left, :right, :parent) do
+    Node = Struct.new('Node', :key, :color, :left, :right, :parent) do
       # Creates a new Node
       #
       # @param key [Comparable] The key stored in the node

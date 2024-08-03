@@ -186,4 +186,58 @@ RSpec.describe BinarySearch::List do
       expect(populated_list).not_to eq(described_class.new([1, 2, 3]))
     end
   end
+
+  describe 'large dataset operations' do
+    let(:large_dataset) { (1..100_000).to_a.shuffle }
+    let(:large_list) { described_class.new(large_dataset) }
+
+    it 'handles insertion of a large dataset' do
+      expect(large_list.size).to eq(100_000)
+      expect(large_list.to_a).to eq(large_dataset.sort)
+    end
+
+    it 'performs fast lookups' do
+      expect {
+        100.times { large_list.include?(rand(1..100_000)) }
+      }.to perform_under(0.1).sec
+    end
+
+    it 'handles deletions efficiently' do
+      expect {
+        100.times { large_list.delete(rand(1..100_000)) }
+      }.to perform_under(0.1).sec
+      expect(large_list.size).to be_within(200).of(99_900)
+    end
+
+    it 'performs set operations on large datasets' do
+      other_large_dataset = (50_000..150_000).to_a.shuffle
+      other_large_list = described_class.new(other_large_dataset)
+
+      expect {
+        large_list | other_large_list
+        large_list & other_large_list
+        large_list - other_large_list
+      }.to perform_under(1).sec
+
+      expect((large_list | other_large_list).size).to be_within(10).of(150_000)
+      expect((large_list & other_large_list).size).to be_within(10).of(50_000)
+      expect((large_list - other_large_list).size).to be_within(10).of(50_000)
+    end
+
+    it 'handles large-scale insertions and deletions' do
+      expect {
+        10_000.times do
+          large_list.delete(rand(1..100_000))
+          large_list.insert(rand(1..100_000))
+        end
+      }.to perform_under(1).sec
+
+      expect(large_list.size).to be_within(2000).of(100_000)
+
+      sorted_list = large_list.to_a
+      expect(sorted_list.first).to be >= 1
+      expect(sorted_list.last).to be <= 100_000
+      expect(sorted_list).to eq(sorted_list.sort)
+    end
+  end
 end
