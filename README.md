@@ -18,7 +18,7 @@ BinarySearch is a Ruby gem that implements a self-balancing binary search tree u
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'binary_search'
+gem 'ruby_binary_search'
 ```
 
 And then execute:
