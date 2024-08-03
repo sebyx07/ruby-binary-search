@@ -457,6 +457,20 @@ module BinarySearch
       self.to_a == other.to_a
     end
 
+    # Provide a string representation of the list
+    #
+    # This method returns a concise string representation of the list,
+    # showing the class name and the size of the list.
+    #
+    # @return [String] A string representation of the list
+    #
+    # @example Inspect the list
+    #   list = BinarySearch::List.new([1, 2, 3, 4, 5])
+    #   list.inspect  # => "#<BinarySearch::List: (5 elements)>"
+    def inspect
+      "#<#{self.class}: (#{size} elements)>"
+    end
+
     private
       # Build the tree from an initial list
       #
