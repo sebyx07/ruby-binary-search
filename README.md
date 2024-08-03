@@ -13,6 +13,57 @@ BinarySearch is a Ruby gem that implements a self-balancing binary search tree u
 - **Sorted storage**: Elements are always stored in sorted order, making it perfect for applications that require sorted data. 📊
 - **Flexible**: Supports common list operations like push, pop, shift, and unshift, as well as set operations like union and intersection. 🛠️
 
+## Benchmark results:
+```bash
+Benchmarking with 10,000 elements:
+                           user     system      total        real
+Array insert:          0.000455   0.000000   0.000455 (  0.000453)
+BinarySearch insert:   0.010808   0.000735   0.011543 (  0.011955)
+NArray insert:         0.000023   0.000007   0.000030 (  0.000030)
+Array search:          0.149230   0.000000   0.149230 (  0.149390)
+BinarySearch search:   0.001719   0.000000   0.001719 (  0.001720)
+NArray search:         0.210021   0.000861   0.210882 (  0.210903)
+Array delete:          0.466095   0.000000   0.466095 (  0.466142)
+BinarySearch delete:   0.006978   0.000986   0.007964 (  0.007965)
+NArray delete:         0.344920   0.045966   0.390886 (  0.391025)
+Insertion:
+  Array is 15.1x slower than the fastest
+  Binary is 398.93x slower than the fastest
+  Narray is the fastest
+Search:
+  Array is 86.85x slower than the fastest
+  Binary is the fastest
+  Narray is 122.61x slower than the fastest
+Deletion:
+  Array is 58.52x slower than the fastest
+  Binary is the fastest
+  Narray is 49.09x slower than the fastest
+
+Benchmarking with 100,000 elements:
+                           user     system      total        real
+Array insert:          0.003449   0.000000   0.003449 (  0.003449)
+BinarySearch insert:   0.089313   0.000000   0.089313 (  0.089320)
+NArray insert:         0.000095   0.000000   0.000095 (  0.000095)
+Array search:         15.813410   0.002981  15.816391 ( 15.815585)
+BinarySearch search:   0.013462   0.000002   0.013464 (  0.013466)
+NArray search:        18.734754   0.001999  18.736753 ( 18.737876)
+Array delete:         47.327969   0.000001  47.327970 ( 47.332518)
+BinarySearch delete:   0.042072   0.000001   0.042073 (  0.042075)
+NArray delete:        29.808121   3.051711  32.859832 ( 32.851348)
+Insertion:
+  Array is 36.49x slower than the fastest
+  Binary is 944.99x slower than the fastest
+  Narray is the fastest
+Search:
+  Array is 1174.52x slower than the fastest
+  Binary is the fastest
+  Narray is 1391.54x slower than the fastest
+Deletion:
+  Array is 1124.94x slower than the fastest
+  Binary is the fastest
+  Narray is 780.77x slower than the fastest
+```
+
 ## Installation 💻
 
 Add this line to your application's Gemfile:

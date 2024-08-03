@@ -16,3 +16,5 @@ gem 'lefthook', '~> 1.7', '>= 1.7.4'
 gem 'pry', '~> 0.14.2'
 
 gem 'rspec-benchmark', '~> 0.6.0'
+
+gem 'numo-narray', '~> 0.9.2.1'
