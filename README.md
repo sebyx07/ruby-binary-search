@@ -53,6 +53,33 @@ puts list.to_a  # Output: [2, 3, 3, 4, 5, 5, 5, 6, 7, 9]
 puts list.min  # Output: 2
 puts list.max  # Output: 9
 ```
+Custom objects
+```ruby
+require 'binary_search'
+class Person
+  attr_accessor :name, :age
+
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+
+  def <=>(other)
+    @age <=> other.age
+  end
+end
+
+
+list = BinarySearch::List.new([
+  Person.new('Alice', 25),
+  Person.new('Bob', 30),
+  Person.new('Charlie', 20),
+  Person.new('David', 35)
+])
+
+puts list.to_a.map(&:name)  # Output: ["Charlie", "Alice", "Bob", "David"]
+```
+
 ## Why is BinarySearch better than normal search? 🏆
 
 - Speed: For large datasets, binary search is significantly faster than linear search. While a normal array search takes O(n) time, BinarySearch takes only O(log n) time. 🐇

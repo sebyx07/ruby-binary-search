@@ -3,13 +3,13 @@
 require_relative 'lib/binary_search/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'binary_search'
+  spec.name = 'ruby_binary_search'
   spec.version = BinarySearch::VERSION
   spec.authors = ['sebi']
   spec.email = ['gore.sebyx@yahoo.com']
 
-  spec.summary = 'Binary search list implemented in ruby using red-black tree'
-  spec.description = 'Binary search list implemented in ruby using red-black tree'
+  spec.summary = 'Binary search list implemented in ruby using red-black self-balancing tree'
+  spec.description = 'Binary search list implemented in ruby using red-black self-balancing tree'
   spec.homepage = 'https://github.com/sebyx07/binary_search'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.0'

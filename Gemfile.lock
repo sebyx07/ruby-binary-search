@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    binary_search (1.0.0)
+    ruby_binary_search (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -106,12 +106,12 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  binary_search!
   lefthook (~> 1.7, >= 1.7.4)
   pry (~> 0.14.2)
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop-rails_config (~> 1.16)
+  ruby_binary_search!
 
 BUNDLED WITH
    2.5.14

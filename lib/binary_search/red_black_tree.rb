@@ -44,9 +44,11 @@ module BinarySearch
         parent = nil
         while current
           parent = current
-          if key < current.key
+          comparison = key <=> current.key
+          case comparison
+          when -1
             current = current.left
-          elsif key > current.key
+          when 1
             current = current.right
           else
             # For duplicates, we'll add to the right
@@ -54,7 +56,8 @@ module BinarySearch
           end
         end
         new_node.parent = parent
-        if key <= parent.key
+        comparison = key <=> parent.key
+        if comparison <= 0
           parent.left = new_node
         else
           parent.right = new_node
@@ -106,8 +109,9 @@ module BinarySearch
     def find(key)
       current = @root
       while current
-        return current if current.key == key
-        current = key < current.key ? current.left : current.right
+        comparison = key <=> current.key
+        return current if comparison == 0
+        current = comparison < 0 ? current.left : current.right
       end
       nil
     end
