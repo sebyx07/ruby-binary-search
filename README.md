@@ -15,53 +15,71 @@ BinarySearch is a Ruby gem that implements a self-balancing binary search tree u
 
 ## Benchmark results:
 ```bash
+ruby 3.3.3 (2024-06-12 revision f1c7b6f435) +YJIT [x86_64-linux]
 Benchmarking with 10,000 elements:
-                           user     system      total        real
-Array insert:          0.000455   0.000000   0.000455 (  0.000453)
-BinarySearch insert:   0.010808   0.000735   0.011543 (  0.011955)
-NArray insert:         0.000023   0.000007   0.000030 (  0.000030)
-Array search:          0.149230   0.000000   0.149230 (  0.149390)
-BinarySearch search:   0.001719   0.000000   0.001719 (  0.001720)
-NArray search:         0.210021   0.000861   0.210882 (  0.210903)
-Array delete:          0.466095   0.000000   0.466095 (  0.466142)
-BinarySearch delete:   0.006978   0.000986   0.007964 (  0.007965)
-NArray delete:         0.344920   0.045966   0.390886 (  0.391025)
+                                     user     system      total        real
+Array#<< (append):               0.000318   0.000083   0.000401 (  0.000398)
+BinarySearch GEM#insert:         0.012594   0.000000   0.012594 (  0.012609)
+Numo::NArray.new + .seq:         0.000042   0.000000   0.000042 (  0.000042)
+SortedSet#add:                   0.008358   0.001024   0.009382 (  0.009516)
+Array#include?:                  0.150862   0.000000   0.150862 (  0.150930)
+BinarySearch GEM#include?:       0.001820   0.000000   0.001820 (  0.001821)
+Numo::NArray#eq + .any?:         0.215213   0.000000   0.215213 (  0.215412)
+Array#bsearch (std lib):         0.004166   0.000000   0.004166 (  0.004166)
+Array#delete:                    0.471802   0.000000   0.471802 (  0.471888)
+BinarySearch GEM#delete:         0.007105   0.000991   0.008096 (  0.008099)
+Numo::NArray delete (mask):      0.363630   0.039971   0.403601 (  0.403405)
+SortedSet#delete:                0.008109   0.000005   0.008114 (  0.008119)
 Insertion:
-  Array is 15.1x slower than the fastest
-  Binary is 398.93x slower than the fastest
-  Narray is the fastest
+  Array#<< (append): is 9.55x slower than the fastest
+  BinarySearch GEM#insert: is 302.16x slower than the fastest
+  Numo::NArray.new + .seq: is the fastest
+  SortedSet#add: is 228.03x slower than the fastest
+
 Search:
-  Array is 86.85x slower than the fastest
-  Binary is the fastest
-  Narray is 122.61x slower than the fastest
+  Array#include?: is 82.9x slower than the fastest
+  BinarySearch GEM#include?: is the fastest
+  Numo::NArray#eq + .any?: is 118.32x slower than the fastest
+  Array#bsearch (std lib): is 2.29x slower than the fastest
+
 Deletion:
-  Array is 58.52x slower than the fastest
-  Binary is the fastest
-  Narray is 49.09x slower than the fastest
+  Array#delete: is 58.26x slower than the fastest
+  BinarySearch GEM#delete: is the fastest
+  Numo::NArray delete (mask): is 49.81x slower than the fastest
+  SortedSet#delete: is 1.0x slower than the fastest
+
 
 Benchmarking with 100,000 elements:
-                           user     system      total        real
-Array insert:          0.003449   0.000000   0.003449 (  0.003449)
-BinarySearch insert:   0.089313   0.000000   0.089313 (  0.089320)
-NArray insert:         0.000095   0.000000   0.000095 (  0.000095)
-Array search:         15.813410   0.002981  15.816391 ( 15.815585)
-BinarySearch search:   0.013462   0.000002   0.013464 (  0.013466)
-NArray search:        18.734754   0.001999  18.736753 ( 18.737876)
-Array delete:         47.327969   0.000001  47.327970 ( 47.332518)
-BinarySearch delete:   0.042072   0.000001   0.042073 (  0.042075)
-NArray delete:        29.808121   3.051711  32.859832 ( 32.851348)
+                                     user     system      total        real
+Array#<< (append):               0.003539   0.000022   0.003561 (  0.003571)
+BinarySearch GEM#insert:         0.085730   0.004032   0.089762 (  0.089782)
+Numo::NArray.new + .seq:         0.000109   0.000004   0.000113 (  0.000095)
+SortedSet#add:                   0.060403   0.000000   0.060403 (  0.060411)
+Array#include?:                 16.131343   0.002956  16.134299 ( 16.133787)
+BinarySearch GEM#include?:       0.013607   0.000002   0.013609 (  0.013611)
+Numo::NArray#eq + .any?:        18.948453   0.007996  18.956449 ( 18.957555)
+Array#bsearch (std lib):         0.048986   0.000000   0.048986 (  0.048997)
+Array#delete:                   47.501618   0.001000  47.502618 ( 47.508824)
+BinarySearch GEM#delete:         0.043180   0.000001   0.043181 (  0.043194)
+Numo::NArray delete (mask):     29.937312   2.154682  32.091994 ( 32.080060)
+SortedSet#delete:                0.100403   0.000000   0.100403 (  0.100697)
 Insertion:
-  Array is 36.49x slower than the fastest
-  Binary is 944.99x slower than the fastest
-  Narray is the fastest
+  Array#<< (append): is 37.69x slower than the fastest
+  BinarySearch GEM#insert: is 947.56x slower than the fastest
+  Numo::NArray.new + .seq: is the fastest
+  SortedSet#add: is 637.58x slower than the fastest
+
 Search:
-  Array is 1174.52x slower than the fastest
-  Binary is the fastest
-  Narray is 1391.54x slower than the fastest
+  Array#include?: is 1185.37x slower than the fastest
+  BinarySearch GEM#include?: is the fastest
+  Numo::NArray#eq + .any?: is 1392.84x slower than the fastest
+  Array#bsearch (std lib): is 3.6x slower than the fastest
+
 Deletion:
-  Array is 1124.94x slower than the fastest
-  Binary is the fastest
-  Narray is 780.77x slower than the fastest
+  Array#delete: is 1099.89x slower than the fastest
+  BinarySearch GEM#delete: is the fastest
+  Numo::NArray delete (mask): is 742.7x slower than the fastest
+  SortedSet#delete: is 2.33x slower than the fastest
 ```
 
 ## Installation 💻
